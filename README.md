@@ -1,6 +1,6 @@
-## PROFILE ##
+# PROFILE #
 
-# Laravel 6.0 Auth  Setup #
+## Laravel 6.0 Auth  Setup ##
 
 1st Command:
 
