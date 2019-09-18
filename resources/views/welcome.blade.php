@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Profile Home Page
                 </div>
 
                 <div class="links">
