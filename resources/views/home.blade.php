@@ -7,14 +7,14 @@
             <img src="https://avatars0.githubusercontent.com/u/8663561?s=460&v=4" style=" width:150px; height:150px;" class="rounded-circle">
         </div>
         <div class="col-9 pt-5">
-            <div><h1>SOURAV</h1></div>
+        <div><h1>{{ $user->username }}</h1></div>
             <div class="d-flex">
                 <div class="pr-5"><strong>136</strong> Posts</div>
                 <div class="pr-5"><strong>500</strong> Followers</div>
                 <div class="pr-5"><strong>25</strong> Following</div>
             </div>
             <div class="pt-4 font-weight-bold">Sourav Roy</div>
-            <div>Love Travels ❤🛫 Life Is Too Short 😥 So Enjoy The Life 😎😍</div>
+            <div>Love Travels ❤🛫 <br> Life Is Too Short 😥 So Enjoy The Life 😎😍</div>
             <div><a href="">https://www.facebook.com/SOURAVROY.CSE</a></div>
         </div>
     </div>
