@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
-    //Use Middleware For Authentication
+    //Use Middleware For Authentication For Protection
     public function __construct(){
 
         $this->middleware('auth');
@@ -28,6 +28,7 @@ class PostsController extends Controller
             'image'   => ['required','image'],
 
         ]);
+            dd(request('image')->store('uploads','public'));
         // Create date For User **************************
             auth()->user()->posts()->create($data);
 
