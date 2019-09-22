@@ -28,9 +28,14 @@ class PostsController extends Controller
             'image'   => ['required','image'],
 
         ]);
-            dd(request('image')->store('uploads','public'));
+            // dd(request('image')->store('uploads','public'));
+            
+            $imagePath = request('image')->store('uploads','public');
         // Create date For User **************************
-            auth()->user()->posts()->create($data);
+            auth()->user()->posts()->create([
+                'caption' => $data['caption'],
+                'image'   => $imagePath,
+            ]);
 
         // $post = new \App\Post();
         // $post->caption = $data['caption'];
@@ -38,8 +43,7 @@ class PostsController extends Controller
 
         // \App\Post::create($data);
 
-        // dd($request->all());
-        dd(request()->all());
-
+        // dd(request()->all());
+            return redirect('/profile/'. auth()->user()->id);
     }
 }
