@@ -17,6 +17,12 @@
 4th Command:
 
     npm run dev
+    
+## Image Resize ##
+
+Image Resize Command for intervention/image:
+
+    $ composer require intervention/image
 
 After these Command, don't forget to run your database migrations!
 Then your Auth Clearly Run.. Happy Laravel :)

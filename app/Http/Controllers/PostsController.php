@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -36,7 +37,9 @@ class PostsController extends Controller
                 'caption' => $data['caption'],
                 'image'   => $imagePath,
             ]);
-
+            
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            $image->save();
         // $post = new \App\Post();
         // $post->caption = $data['caption'];
         // $post->save();
