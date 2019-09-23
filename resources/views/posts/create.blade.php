@@ -9,14 +9,15 @@
                     <div>
                         <h1>Add New Post</h1>
                     </div>
+
                     <div class="form-group row">
                         <label for="caption" class="col-md-4 col-form-label">Post Caption</label>
         
-                            <input id="caption" 
+                            <input id="caption"
                                 type="text" 
                                 class="form-control @error('caption') is-invalid @enderror" 
                                 name="caption" value="{{ old('caption') }}" 
-                                autocomplete="caption" autofocus>
+                                autocomplete="caption" autofocus >
         
                             {{-- @error('caption')
                                 <span class="invalid-feedback" role="alert">
@@ -25,9 +26,9 @@
                             @enderror --}}
 
 {{--########################### WoW Thing ****************************** --}}
-                        @if  ($errors->has('caption'))
-                            <strong>{{ $errors->first('caption') }}</strong>
-                        @endif                       
+                            @if  ($errors->has('caption'))
+                                <strong>{{ $errors->first('caption') }}</strong>
+                            @endif
 {{--########################### WoW Thing ****************************** --}}
                     </div>
 
@@ -40,9 +41,9 @@
                         @endif                   
 
                     </div>
+
                     <div class="row pt-4">
                         <button class="btn-primary">Add New Post</button>
-
                     </div>
 
                 </div>

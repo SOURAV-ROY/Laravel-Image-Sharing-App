@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+//use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,9 +48,9 @@ class ProfilesController extends Controller
 
             auth()->$user->profile->update($data);
 
-        //     $user->profile->update($data);
-
             return redirect("/profile/{$user->id}");
+
+        //     $user->profile->update($data);
 
         //     dd($data);
     }

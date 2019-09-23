@@ -13,10 +13,12 @@
             <h1>{{ $user->name }}</h1>
             {{-- <h5>{{ $user->username }}</h5> --}}
             @can('update', $user->profile)
-                <a href="/p/create">Add New Post</a>
+                <button class="btn btn-outline-success"><a href="/p/create">Add New Post</a></button>
             @endcan
         </div>
-            <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan
         
             <div class="d-flex">
                 <div class="pr-5">
