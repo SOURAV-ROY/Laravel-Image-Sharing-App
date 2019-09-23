@@ -11,9 +11,12 @@
         <div class="d-flex justify-content-between align-items-baseline">
             <h1>{{ $user->name }}</h1>
             {{-- <h5>{{ $user->username }}</h5> --}}
-        <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan          
             <a href="/p/create">Add New Post</a>
         </div>
+        
             <div class="d-flex">
             <div class="pr-5"><strong>{{$user->posts->count()}}</strong> Posts</div>
                 <div class="pr-5"><strong>500</strong> Followers</div>

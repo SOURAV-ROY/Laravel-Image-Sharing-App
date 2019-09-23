@@ -41,6 +41,9 @@ class PostsController extends Controller
 // Image Resize *******************************************************
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
+
+            return redirect('/profile/'. auth()->user()->id);
+            
         // $post = new \App\Post();
         // $post->caption = $data['caption'];
         // $post->save();
@@ -48,7 +51,6 @@ class PostsController extends Controller
         // \App\Post::create($data);
 
         // dd(request()->all());
-            return redirect('/profile/'. auth()->user()->id);
     }
     // public function show( $post){ ***Its Not Right***
 
