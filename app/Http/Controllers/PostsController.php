@@ -38,6 +38,7 @@ class PostsController extends Controller
                 'image'   => $imagePath,
             ]);
             
+// Image Resize *******************************************************
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
         // $post = new \App\Post();
@@ -48,5 +49,15 @@ class PostsController extends Controller
 
         // dd(request()->all());
             return redirect('/profile/'. auth()->user()->id);
+    }
+    // public function show( $post){ ***Its Not Right***
+
+    public function show(\App\Post $post){
+        // dd($post);
+        // return view('posts.show', [
+
+        //     'post' => $post,
+        // ]);
+        return view('posts.show', compact('post'));
     }
 }
