@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
@@ -27,6 +28,9 @@ class ProfilesController extends Controller
 
     // public function edit(\App\User $user){
     public function edit(User $user){
+        //     Edit View Is Protected
+            $this->authorize('update', $user->profile);
+            
             return view('profiles.edit', compact('user'));
     }
 
@@ -38,10 +42,11 @@ class ProfilesController extends Controller
                 'image' => '',
             ]);
 
-            $user->profile->update($data);
+            auth()->$user->profile->update($data);
+        //     $user->profile->update($data);
 
             return redirect("/profile/{$user->id}");
-            
+
         //     dd($data);
     }
 }
