@@ -54,7 +54,9 @@ class ProfilePolicy
     public function update(User $user, Profile $profile)
     {
         // The Policy Added ***********************************************
-        return $user->id =$profile->user_id;
+//        return $user->id = $profile->user_id;
+
+        return $user->id == $profile->user_id;
     }
 
     /**
