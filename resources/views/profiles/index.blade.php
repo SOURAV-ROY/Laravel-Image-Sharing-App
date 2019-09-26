@@ -33,16 +33,21 @@
                         </div>
                     </div>
 
-                {{-- <div class="pt-4 font-weight-bold">Sourav Roy</div>
-                <div>Love Travels ❤🛫 <br> Life Is Too Short 😥 So Enjoy The Life 😎😍</div>
-                <div><a href="">https://www.facebook.com/SOURAVROY.CSE</a></div> --}}
+               <!--  <div class="pt-4 font-weight-bold">Sourav Roy</div>
+                <div>
+                    Love Travels ❤🛫 <br> Life Is Too Short 😥 So Enjoy The Life 😎😍
+                </div>
+                <div>
+                    <a href="">https://www.facebook.com/SOURAVROY.CSE</a>
+                </div> -->
 
                 <div class="pt-4 font-weight-bold">
                     {{$user->profile->title}}
                 </div>
                 <div>
-                    Love Travels ❤🛫 {{$user->profile->description}} 😎😍
+                    {{$user->profile->description}}
                 </div>
+
                 <div>
                     <a href="">{{$user->profile->url ?? 'N/A'}}</a>
                 </div>
@@ -53,7 +58,8 @@
     <div  class="row pt-5">
 {{--********************************** Image View ***********************************--}}
         @foreach ($user->posts as $post)
-        <div style="border: 1px solid darkgreen" class="col-4 pb-4">
+        <!-- <div style="border: 1px solid darkgreen" class="col-4 pb-4"> -->
+        <div class="col-4 pb-4">
             <a href="/p/{{ $post->id }}">
                  <img src="/storage/{{ $post->image }}"class="w-100">          
             </a>        

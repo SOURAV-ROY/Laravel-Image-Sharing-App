@@ -47,7 +47,7 @@ class ProfilesController extends Controller
             ]);
 
 //            auth()->$user->profile->update($data);
-              auth()->$user->profile->update($data);
+              auth()->user()->profile->update($data);
 
             return redirect("/profile/{$user->id}");
 
