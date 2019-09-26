@@ -11,9 +11,9 @@
             {{-- <h3>{{ $post->user->username }}</h3> --}}
             <h3>{{ $post->user->name }}</h3>
             <h5>{{ $post->user->username }}</h5>
-            <p>{{$post->caption}}</p>
+            <p> {{$post->caption}} </p>
         </div>
     </div>
-    
+
 </div>
 @endsection

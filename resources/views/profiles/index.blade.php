@@ -5,7 +5,8 @@
 
     <div class="row">
             <div class="col-3 p-5">
-                <img src="https://avatars0.githubusercontent.com/u/8663561?s=460&v=4" style=" width:150px; height:150px;" class="rounded-circle">
+{{--                <img src="https://avatars0.githubusercontent.com/u/8663561?s=460&v=4" style=" width:150px; height:150px;" class="rounded-circle">--}}
+                <img src="/storage/{{ $user->profile->image }}" class="rounded-circle w-100">
             </div>
 
             <div class="col-9 pt-5">
@@ -42,10 +43,10 @@
                 </div> -->
 
                 <div class="pt-4 font-weight-bold">
-                    {{$user->profile->title}}
+                    {{$user->profile->title ?? 'N/A'}}
                 </div>
                 <div>
-                    {{$user->profile->description}}
+                    {{$user->profile->description ?? 'N/A'}}
                 </div>
 
                 <div>
@@ -61,8 +62,8 @@
         <!-- <div style="border: 1px solid darkgreen" class="col-4 pb-4"> -->
         <div class="col-4 pb-4">
             <a href="/p/{{ $post->id }}">
-                 <img src="/storage/{{ $post->image }}"class="w-100">          
-            </a>        
+                 <img src="/storage/{{ $post->image }}"class="w-100">
+            </a>
         </div>
         @endforeach
     </div>

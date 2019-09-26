@@ -29,21 +29,20 @@ class PostsController extends Controller
 
         ]);
             // dd(request('image')->store('uploads','public'));
-            
+
         $imagePath = request('image')->store('uploads','public');
+// Image Resize *******************************************************
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
         // Create date For User **************************
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'image'   => $imagePath,
         ]);
-            
-// Image Resize *******************************************************
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
 
             return redirect('/profile/'. auth()->user()->id);
-            
+
         // $post = new \App\Post();
         // $post->caption = $data['caption'];
         // $post->save();
@@ -54,7 +53,7 @@ class PostsController extends Controller
     }
     // public function show( $post){ ***Its Not Right***
 
-    public function show(\App\Post $post){
+    public function show(Post $post){
 
             return view('posts.show', compact('post'));
 
