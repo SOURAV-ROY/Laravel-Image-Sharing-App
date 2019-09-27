@@ -6,7 +6,7 @@
     <div class="row">
             <div class="col-3 p-5">
 {{--                <img src="https://avatars0.githubusercontent.com/u/8663561?s=460&v=4" style=" width:150px; height:150px;" class="rounded-circle">--}}
-                <img src="/storage/{{ $user->profile->image }}" class="rounded-circle w-100">
+                <img src="{{ $user->profile->profileImage() }}" class="rounded-circle w-100">
             </div>
 
             <div class="col-9 pt-5">
