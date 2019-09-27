@@ -32,10 +32,10 @@
                             <strong>{{$user->posts->count()}}</strong> Posts
                         </div>
                         <div class="pr-5">
-                            <strong>500</strong> Followers
+                            <strong>{{ $user->profile->followers->count() }}</strong> Followers
                         </div>
                         <div class="pr-5">
-                            <strong>25</strong> Following
+                            <strong>{{ $user->following->count() }}</strong> Following
                         </div>
                     </div>
 
