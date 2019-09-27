@@ -13,14 +13,27 @@
 <!--        </div>-->
 <!--    </div>-->
     <div>
-        <button class="btn btn-primary ml-4">FOLLOW ME</button>
+        <button class="btn btn-primary ml-4" @click="followUser">FOLLOW ME</button>
     </div>
 </template>
 
 <script>
     export default {
+        props: ['userId'],
+
         mounted() {
             console.log('Component mounted.')
+        },
+
+        methods: {
+            followUser(){
+                // alert('inside');
+                axios.post('/follow/' + this.userId)
+                    .then(response => {
+                       alert(response.data);
+                    });
+            }
         }
     }
+
 </script>
