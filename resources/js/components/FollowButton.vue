@@ -40,6 +40,11 @@
                         this.status = ! this.status;
                        // alert(response.data);
                        console.log(response.data);
+                    })
+                    .catch(errors => {
+                        if(errors.response.status == 401){
+                            window.location = '/login';
+                        }
                     });
             }
         },
