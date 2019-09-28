@@ -31,7 +31,7 @@ class PostsController extends Controller
             // dd(request('image')->store('uploads','public'));
 
         $imagePath = request('image')->store('uploads','public');
-// Image Resize *******************************************************
+//      Image Resize *******************************************************
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
 
@@ -51,7 +51,7 @@ class PostsController extends Controller
 
         // dd(request()->all());
     }
-    // public function show( $post){ ***Its Not Right***
+//  public function show( $post){ ***Its Not Right***
 
     public function show(Post $post){
 
