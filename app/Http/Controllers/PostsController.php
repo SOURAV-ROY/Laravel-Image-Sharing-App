@@ -15,11 +15,25 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
+//  Create Method *******************************************************
     public function create()
     {
         return view('posts.create');
     }
 
+//  Index Method *******************************************************
+    public function index(){
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+
+//   $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->get();
+        $posts = Post::whereIn('user_id', $users)->latest()->get();
+//   dd($users);
+//   dd($posts);
+        return view('posts.index',compact('posts'));
+    }
+
+
+//  Store Method *******************************************************
     public function store()
     {
         $data = request()->validate([
