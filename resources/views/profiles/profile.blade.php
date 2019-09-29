@@ -29,13 +29,13 @@
 
                     <div class="d-flex">
                         <div class="pr-5">
-                            <strong>{{$user->posts->count()}}</strong> Posts
+                            <strong>{{ $postCount }}</strong> Posts
                         </div>
                         <div class="pr-5">
-                            <strong>{{ $user->profile->followers->count() }}</strong> Followers
+                            <strong>{{ $followersCount }}</strong> Followers
                         </div>
                         <div class="pr-5">
-                            <strong>{{ $user->following->count() }}</strong> Following
+                            <strong>{{ $followingCount }}</strong> Following
                         </div>
                     </div>
 

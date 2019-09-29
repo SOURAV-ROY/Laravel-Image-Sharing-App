@@ -6,6 +6,7 @@ use App\User;
 //use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
@@ -18,8 +19,29 @@ class ProfilesController extends Controller
 //  Follow Or Not **************************************************************
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 //        dd($follows);
+
+        $postCount = Cache::remember(
+            'user.posts.'. $user->id,
+            now()->addSeconds(30),
+            function () use($user) {
+            return $user->posts->count();
+        });
+
+        $followersCount = Cache::remember(
+            'user.followers.'. $user->id,
+            now()->addSeconds(30),
+            function () use($user) {
+            return $user->profile->followers->count();
+        });
+        $followingCount = Cache::remember(
+            'user.following.'. $user->id,
+            now()->addSeconds(30),
+            function () use($user) {
+            return $user->following->count();
+        });
+
 // Now Use this *************************************************************
-        return view('profiles.profile', compact('user', 'follows'));
+        return view('profiles.profile', compact('user', 'follows','postCount','followersCount','followingCount'));
 
         // dd($user);
         // dd(User::find($user));
