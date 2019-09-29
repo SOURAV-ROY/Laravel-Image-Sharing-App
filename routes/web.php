@@ -10,17 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
+use App\Mail\NewUserWelcomeMail;
 
 Auth::routes();
 
 //Route::post('follow/{user}', function (){
 //    return ['success'];
 //});
+Route::get('/email', function (){
+    return new NewUserWelcomeMail();
+});
+
 Route::post('follow/{user}', 'FollowsController@store');
 
 Route::get('/', 'PostsController@index');

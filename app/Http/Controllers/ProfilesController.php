@@ -16,10 +16,11 @@ class ProfilesController extends Controller
 
     // public function index(\App\User $user){
     public function index(User $user){
-//  Follow Or Not **************************************************************
-        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
-//        dd($follows);
 
+//   Follow Or Not **************************************************************
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+//   Cache Work For This Line ****************************************************************
         $postCount = Cache::remember(
             'user.posts.'. $user->id,
             now()->addSeconds(30),
@@ -33,6 +34,7 @@ class ProfilesController extends Controller
             function () use($user) {
             return $user->profile->followers->count();
         });
+
         $followingCount = Cache::remember(
             'user.following.'. $user->id,
             now()->addSeconds(30),
@@ -40,20 +42,20 @@ class ProfilesController extends Controller
             return $user->following->count();
         });
 
-// Now Use this *************************************************************
+//   Now Use this *************************************************************
         return view('profiles.profile', compact('user', 'follows','postCount','followersCount','followingCount'));
 
         // dd($user);
         // dd(User::find($user));
 
-// First Use This :(Its aloso be corrrect)**********************************
+//   First Use This :(Its aloso be corrrect)**********************************
         // $user = User::findOrFail($user);
         // return view('profiles.index', [
         //     'user' => $user,
         // ]);
     }
 
-    // public function edit(\App\User $user){
+//  public function edit(\App\User $user){
     public function edit(User $user){
         //     Edit View Is Protected
         $this->authorize('update', $user->profile);
@@ -62,7 +64,7 @@ class ProfilesController extends Controller
     }
 
     public function update(User $user){
-        //     Edit View Is Protected
+//   Edit View Is Protected
         $this->authorize('update', $user->profile);
 
         $data = request()->validate([
