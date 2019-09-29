@@ -7,7 +7,6 @@
     <div class="row">
 
         <div class="col-6 offset-3">
-
                 <div>
                     <div class="d-flex align-items-center">
                         <div class="pr-3 pt-3 pb-3">
@@ -23,14 +22,14 @@
                     </div>
                 </div>
                 <p>
-                    <span class="font-weight-bold">
-                        {{$post->caption}}
-                    </span>
+                    <span class="font-weight-bold">{{$post->caption}}</span>
                 </p>
         </div>
+
         <div class="col-6 offset-3">
             <img src="/storage/{{$post->image}}" class="w-100">
         </div>
+
     </div>
         @endforeach
 

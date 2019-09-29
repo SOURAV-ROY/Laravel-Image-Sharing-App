@@ -33,7 +33,7 @@ class PostsController extends Controller
     }
 
 
-//  Store Method *******************************************************
+//   Store Method *******************************************************
     public function store()
     {
         $data = request()->validate([
@@ -42,7 +42,7 @@ class PostsController extends Controller
             'image'   => ['required','image'],
 
         ]);
-            // dd(request('image')->store('uploads','public'));
+//   dd(request('image')->store('uploads','public'));
 
         $imagePath = request('image')->store('uploads','public');
 //      Image Resize *******************************************************
@@ -54,7 +54,6 @@ class PostsController extends Controller
             'caption' => $data['caption'],
             'image'   => $imagePath,
         ]);
-
             return redirect('/profile/'. auth()->user()->id);
 
         // $post = new \App\Post();
@@ -65,7 +64,6 @@ class PostsController extends Controller
 
         // dd(request()->all());
     }
-//  public function show( $post){ ***Its Not Right***
 
     public function show(Post $post){
 
