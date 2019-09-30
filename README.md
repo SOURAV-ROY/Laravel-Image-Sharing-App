@@ -26,3 +26,7 @@ Image Resize Command for intervention/image:
 
 After these Command, don't forget to run your database migrations!
 Then your Auth Clearly Run.. Happy Laravel :)
+
+## MIT License ##
+
+### Copyright (c) 2019 SOURAV ROY ###
