@@ -54,22 +54,22 @@ class User extends Authenticatable
         });
     }
 
-// For Post **************************************************
+//  For Post **************************************************
     public function posts()
     {
         // Order By ******************************************************
         return $this->hasMany(Post::class)->orderBy('created_at','DESC');
     }
 
-//    Following **************************************************
+//  Following **************************************************
     public function following(){
         return $this->belongsToMany(Profile::class);
     }
 
-// For Profile ###############################################
+//  For Profile ###############################################
     public function profile(){
 
             return $this->hasOne(Profile::class);
-        }
+    }
 
 }

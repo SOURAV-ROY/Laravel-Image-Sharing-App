@@ -17,6 +17,7 @@ Auth::routes();
 //Route::post('follow/{user}', function (){
 //    return ['success'];
 //});
+
 Route::get('/email', function (){
     return new NewUserWelcomeMail();
 });
