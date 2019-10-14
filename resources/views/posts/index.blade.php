@@ -27,7 +27,7 @@
             </p>
         </div>
 
-        <div class="col-6 offset-3">
+        <div class="col-6 offset-3" style="border: 1px solid green">
             <a href="/profile/{{ $post->user->id }}">
                 <img src="/storage/{{$post->image}}" class="w-100">
             </a>

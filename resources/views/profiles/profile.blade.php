@@ -65,7 +65,7 @@
 {{--********************************** Image View ***********************************--}}
         @foreach ($user->posts as $post)
         <!-- <div style="border: 1px solid darkgreen" class="col-4 pb-4"> -->
-        <div class="col-4 pb-4">
+        <div class="col-4 pb-4" style="border: 1px solid red">
             <a href="/p/{{ $post->id }}">
                  <img src="/storage/{{ $post->image }}"class="w-100">
             </a>

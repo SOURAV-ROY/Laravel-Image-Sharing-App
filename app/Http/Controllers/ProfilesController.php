@@ -11,7 +11,6 @@ use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
-    //
     // public function index($user){
 
     // public function index(\App\User $user){
@@ -57,7 +56,7 @@ class ProfilesController extends Controller
 
 //  public function edit(\App\User $user){
     public function edit(User $user){
-        //     Edit View Is Protected
+//      Edit View Is Protected
         $this->authorize('update', $user->profile);
 
         return view('profiles.edit', compact('user'));
@@ -65,7 +64,7 @@ class ProfilesController extends Controller
 
     public function update(User $user){
 
-//  Edit View Is Protected *************************************************
+//      Edit View Is Protected *************************************************
         $this->authorize('update', $user->profile);
 
         $data = request()->validate([
@@ -78,7 +77,7 @@ class ProfilesController extends Controller
         if(request('image')){
             $imagePath = request('image')->store('profile','public');
 
-// Image Resize ************************************************************
+//          Image Resize ************************************************************
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
             $image->save();
 
@@ -99,7 +98,6 @@ class ProfilesController extends Controller
         ));
 
         return redirect("/profile/{$user->id}");
-
-    //     dd($data);
+//      dd($data);
     }
 }
