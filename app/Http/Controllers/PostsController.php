@@ -23,18 +23,19 @@ class PostsController extends Controller
 
 //  Index Method *******************************************************
     public function index(){
+
         $users = auth()->user()->following()->pluck('profiles.user_id');
 
-//   $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->get();
-//   $posts = Post::whereIn('user_id', $users)->latest()->get();
+//      $posts = Post::whereIn('user_id', $users)->orderBy('created_at', 'DESC')->get();
+//      $posts = Post::whereIn('user_id', $users)->latest()->get();
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
-//   dd($users);
-//   dd($posts);
+//      dd($users);
+//      dd($posts);
         return view('posts.index',compact('posts'));
     }
 
 
-//   Store Method *******************************************************
+//  Store Method *******************************************************
     public function store()
     {
         $data = request()->validate([
@@ -43,14 +44,15 @@ class PostsController extends Controller
             'image'   => ['required','image'],
 
         ]);
-//   dd(request('image')->store('uploads','public'));
+
+//      dd(request('image')->store('uploads','public'));
 
         $imagePath = request('image')->store('uploads','public');
 //      Image Resize *******************************************************
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
 
-        // Create date For User **************************
+//      Create date For User **************************
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'image'   => $imagePath,

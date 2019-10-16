@@ -11,15 +11,13 @@ use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
-    // public function index($user){
 
-    // public function index(\App\User $user){
     public function index(User $user){
 
-//   Follow Or Not **************************************************************
+//      Follow Or Not **************************************************************
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
-//   Cache Work For This Line ****************************************************************
+//      Cache Work For This Line ****************************************************************
         $postCount = Cache::remember(
             'user.posts.'. $user->id,
             now()->addSeconds(30),
@@ -41,7 +39,7 @@ class ProfilesController extends Controller
             return $user->following->count();
         });
 
-//   Now Use this **********************************************************
+//      Now Use this **********************************************************
         return view('profiles.profile', compact('user', 'follows','postCount','followersCount','followingCount'));
 
         // dd($user);
@@ -80,7 +78,6 @@ class ProfilesController extends Controller
 //          Image Resize ************************************************************
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
             $image->save();
-
             $imageArray = ['image' => $imagePath];
         }
 
