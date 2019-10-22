@@ -4,19 +4,19 @@
 
 1st Command:
 
-    composer require laravel/ui --dev
+    $ composer require laravel/ui --dev
 
 2nd Command:
 
-    php artisan ui vue --auth
+    $ php artisan ui vue --auth
 
 3rd Command:
 
-    npm install
+    $ npm install
 
 4th Command:
 
-    npm run dev
+    $ npm run dev
     
 ## Image Resize ##
 

@@ -45,7 +45,7 @@ class ProfilesController extends Controller
         // dd($user);
         // dd(User::find($user));
 
-//   First Use This :(Its aloso be corrrect)*********************************
+//   First Use This :(Its also be correct)*********************************
         // $user = User::findOrFail($user);
         // return view('profiles.index', [
         //     'user' => $user,
