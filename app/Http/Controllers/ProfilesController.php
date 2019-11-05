@@ -12,35 +12,36 @@ use Intervention\Image\Facades\Image;
 class ProfilesController extends Controller
 {
 
-    public function index(User $user){
+    public function index(User $user)
+    {
 
 //      Follow Or Not **************************************************************
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
 //      Cache Work For This Line ****************************************************************
         $postCount = Cache::remember(
-            'user.posts.'. $user->id,
+            'user.posts.' . $user->id,
             now()->addSeconds(30),
-            function () use($user) {
-            return $user->posts->count();
-        });
+            function () use ($user) {
+                return $user->posts->count();
+            });
 
         $followersCount = Cache::remember(
-            'user.followers.'. $user->id,
+            'user.followers.' . $user->id,
             now()->addSeconds(30),
-            function () use($user) {
-            return $user->profile->followers->count();
-        });
+            function () use ($user) {
+                return $user->profile->followers->count();
+            });
 
         $followingCount = Cache::remember(
-            'user.following.'. $user->id,
+            'user.following.' . $user->id,
             now()->addSeconds(30),
-            function () use($user) {
-            return $user->following->count();
-        });
+            function () use ($user) {
+                return $user->following->count();
+            });
 
 //      Now Use this **********************************************************
-        return view('profiles.profile', compact('user', 'follows','postCount','followersCount','followingCount'));
+        return view('profiles.profile', compact('user', 'follows', 'postCount', 'followersCount', 'followingCount'));
 
         // dd($user);
         // dd(User::find($user));
@@ -53,14 +54,16 @@ class ProfilesController extends Controller
     }
 
 //  public function edit(\App\User $user){
-    public function edit(User $user){
+    public function edit(User $user)
+    {
 //      Edit View Is Protected
         $this->authorize('update', $user->profile);
 
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user){
+    public function update(User $user)
+    {
 
 //      Edit View Is Protected *************************************************
         $this->authorize('update', $user->profile);
@@ -72,8 +75,8 @@ class ProfilesController extends Controller
             'image' => '',
         ]);
 
-        if(request('image')){
-            $imagePath = request('image')->store('profile','public');
+        if (request('image')) {
+            $imagePath = request('image')->store('profile', 'public');
 
 //          Image Resize ************************************************************
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);

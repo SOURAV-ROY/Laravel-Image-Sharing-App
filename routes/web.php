@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\Mail\NewUserWelcomeMail;
 
 Auth::routes();
@@ -18,7 +19,7 @@ Auth::routes();
 //    return ['success'];
 //});
 
-Route::get('/email', function (){
+Route::get('/email', function () {
     return new NewUserWelcomeMail();
 });
 

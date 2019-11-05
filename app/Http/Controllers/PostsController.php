@@ -22,7 +22,8 @@ class PostsController extends Controller
     }
 
 //  Index Method *******************************************************
-    public function index(){
+    public function index()
+    {
 
         $users = auth()->user()->following()->pluck('profiles.user_id');
 
@@ -31,7 +32,7 @@ class PostsController extends Controller
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
 //      dd($users);
 //      dd($posts);
-        return view('posts.index',compact('posts'));
+        return view('posts.index', compact('posts'));
     }
 
 
@@ -41,13 +42,13 @@ class PostsController extends Controller
         $data = request()->validate([
             // 'another' => '',
             'caption' => 'required',
-            'image'   => ['required','image'],
+            'image' => ['required', 'image'],
 
         ]);
 
 //      dd(request('image')->store('uploads','public'));
 
-        $imagePath = request('image')->store('uploads','public');
+        $imagePath = request('image')->store('uploads', 'public');
 //      Image Resize *******************************************************
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
@@ -55,9 +56,9 @@ class PostsController extends Controller
 //      Create date For User **************************
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
-            'image'   => $imagePath,
+            'image' => $imagePath,
         ]);
-            return redirect('/profile/'. auth()->user()->id);
+        return redirect('/profile/' . auth()->user()->id);
 
         // $post = new \App\Post();
         // $post->caption = $data['caption'];
@@ -68,9 +69,10 @@ class PostsController extends Controller
         // dd(request()->all());
     }
 
-    public function show(Post $post){
+    public function show(Post $post)
+    {
 
-            return view('posts.show', compact('post'));
+        return view('posts.show', compact('post'));
 
         // dd($post);
         // return view('posts.show', [
