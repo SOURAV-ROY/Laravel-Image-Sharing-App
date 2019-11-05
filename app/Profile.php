@@ -10,20 +10,23 @@ class Profile extends Model
     protected $guarded = [];
 
 // Default Profile Image ***************************************
-    public function profileImage(){
+    public function profileImage()
+    {
 
         $profileImagePath = ($this->image) ? $this->image : '/profile/HfxxL9pX9otBQCteetPDONTB6g7iyrJUeJmVs9Ax.png';
-        return '/storage/' .$profileImagePath;
+        return '/storage/' . $profileImagePath;
     }
 
 //    Followers ***************************************************
-    public function followers(){
+    public function followers()
+    {
         return $this->belongsToMany(User::class);
     }
 
-    public function user(){
+    public function user()
+    {
 
-            return $this->belongsTo(User::class);
-        }
+        return $this->belongsTo(User::class);
+    }
 
 }
