@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <div class="container">
 
-    <form action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="POST">
+        <form action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="POST">
             @csrf
             @method('PATCH')
 
@@ -17,81 +17,81 @@
                         <label for="title" class="col-md-4 col-form-label">Ttile</label>
 
                         <input id="title"
-                            type="text"
-                            class="form-control @error('title') is-invalid @enderror"
-                            name="title"
-                            value="{{ old('title') ?? $user->profile->title}}"
-                            autocomplete="title" autofocus>
+                               type="text"
+                               class="form-control @error('title') is-invalid @enderror"
+                               name="title"
+                               value="{{ old('title') ?? $user->profile->title}}"
+                               autocomplete="title" autofocus>
 
-                            @error('title')
-                                <span class="invalid-feedback" role="alert">
+                        @error('title')
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                        @enderror
 
-{{--########################### WoW Thing ****************************** --}}
+                        {{--########################### WoW Thing ****************************** --}}
                         {{-- @if  ($errors->has('caption'))
                             <strong>{{ $errors->first('caption') }}</strong>
                         @endif                        --}}
-{{--########################### WoW Thing ****************************** --}}
+                        {{--########################### WoW Thing ****************************** --}}
                     </div>
 
                     <div class="form-group row">
                         <label for="description" class="col-md-4 col-form-label">Description</label>
 
                         <input id="title"
-                            type="text"
-                            class="form-control @error('description') is-invalid @enderror"
-                            name="description"
-                            value="{{ old('description') ?? $user->profile->description}}"
-                            autocomplete="description" autofocus>
+                               type="text"
+                               class="form-control @error('description') is-invalid @enderror"
+                               name="description"
+                               value="{{ old('description') ?? $user->profile->description}}"
+                               autocomplete="description" autofocus>
 
-                            @error('description')
-                                <span class="invalid-feedback" role="alert">
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                        @enderror
 
-{{--########################### WoW Thing ****************************** --}}
+                        {{--########################### WoW Thing ****************************** --}}
                         {{-- @if  ($errors->has('caption'))
                             <strong>{{ $errors->first('caption') }}</strong>
                         @endif                        --}}
-{{--########################### WoW Thing ****************************** --}}
+                        {{--########################### WoW Thing ****************************** --}}
                     </div>
 
                     <div class="form-group row">
                         <label for="url" class="col-md-4 col-form-label">URL</label>
 
                         <input id="url"
-                            type="text"
-                            class="form-control @error('url') is-invalid @enderror"
-                            name="url"
-                            value="{{ old('url') ?? $user->profile->url}}"
-                            autocomplete="url" autofocus>
+                               type="text"
+                               class="form-control @error('url') is-invalid @enderror"
+                               name="url"
+                               value="{{ old('url') ?? $user->profile->url}}"
+                               autocomplete="url" autofocus>
 
-                            @error('url')
-                                <span class="invalid-feedback" role="alert">
+                        @error('url')
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                        @enderror
 
-{{--########################### WoW Thing ****************************** --}}
+                        {{--########################### WoW Thing ****************************** --}}
                         {{-- @if  ($errors->has('caption'))
                             <strong>{{ $errors->first('caption') }}</strong>
                         @endif                        --}}
-{{--########################### WoW Thing ****************************** --}}
+                        {{--########################### WoW Thing ****************************** --}}
                     </div>
 
                     <div class="row">
                         <label for="image" class="col-md-4 col-form-label">Profile Image</label>
-                            <input type="file",
-                            class="form-control-file"
-                            id="image"
-                            name="image">
+                        <input type="file" ,
+                               class="form-control-file"
+                               id="image"
+                               name="image">
 
-                            @if  ($errors->has('image'))
-                                    <strong>{{ $errors->first('image') }}</strong>
-                            @endif
+                        @if  ($errors->has('image'))
+                            <strong>{{ $errors->first('image') }}</strong>
+                        @endif
                     </div>
 
                     <div class="row pt-4">
@@ -100,7 +100,7 @@
 
                 </div>
             </div>
-    </form>
+        </form>
 
-</div>
+    </div>
 @endsection
