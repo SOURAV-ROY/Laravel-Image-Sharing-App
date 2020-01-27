@@ -11,31 +11,18 @@
 
 ## Laravel 6.0 Authentication ##
 
-1st Command:
-
     $ composer require laravel/ui --dev
-
-2nd Command:
-
     $ php artisan ui vue --auth
-
-3rd Command:
-
     $ npm install
-
-4th Command:
-
     $ npm run dev
     
 ## Image Resize ##
 
-Image Resize Command for intervention/image:
+Image Resize Command for Intervention/Image:
 
     $ composer require intervention/image
 
-After these Command, don't forget to run your database migrations!
-Then your Auth Clearly Run.. Happy Laravel :)
+After all these Command, don't forget to run your database migrations!
+Then your Auth Clearly Run.. Happy Laravel ⚙✔
 
-## MIT License ##
-
-### Copyright (c) 2019 SOURAV ROY ###
+### Copyright © SOURAV ROY ###
