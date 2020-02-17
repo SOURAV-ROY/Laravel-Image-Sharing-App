@@ -40,10 +40,10 @@ class User extends Authenticatable
     ];
 
 //  BOOT *****************************************************
-    private $id;
-    private $posts;
-    private $profile;
-    private $following;
+//    private $id;
+//    private $posts;
+//    private $profile;
+//    private $following;
 
     protected static function boot()
     {
